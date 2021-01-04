@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // pulls down from bootstrap for 
 import { Navbar, Nav } from 'react-bootstrap'; // pulls the navbar css from online.
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; // pulls from react-router-dom that was installed to add to the app's navbar and links
-
+import { Gamecreate } from './Components/gamecreate'; // pulls in code from the gamecreate.js component to be used in App.js
+import { Gameread } from './Components/gameread'; // pulls in code from the gameread.js component to be used in App.js
 
 class App extends React.Component { // extends from and uses the code from react
 
@@ -20,14 +21,14 @@ class App extends React.Component { // extends from and uses the code from react
           <Navbar.Brand href="/">Navbar</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/mycreate">Create</Nav.Link>
-            <Nav.Link href="/myread">Read</Nav.Link>
+            <Nav.Link href="/gamecreate">Create</Nav.Link>
+            <Nav.Link href="/gameread">Read</Nav.Link>
           </Nav>
           </Navbar>
           <Switch>
             <Route path='/' component={Gamecontent} exact></Route> 
-            <Route path='/mycreate' component={Gameheader} exact></Route>
-            <Route path='/myread' component={Gamefooter} exact></Route>
+            <Route path='/gamecreate' component={Gamecreate} exact></Route>
+            <Route path='/gameread' component={Gameread} exact></Route>
           </Switch>
       </div>
       </Router>

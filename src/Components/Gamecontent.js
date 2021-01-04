@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // pulls in code from react to be used in Gamecontent.js and allow for the code within to be outputted into the react app if necessary
 import '../App.css';
 
 export class Gamecontent extends React.Component { // extends from and uses the code from react
