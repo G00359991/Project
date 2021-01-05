@@ -8,12 +8,12 @@ export class GameItem extends React.Component { // extends from and uses the cod
         return ( /*outputs the code down below and inputs it into a card format for the screen*/
             <div className="App">
                 <Card>
-                    <Card.Header>{this.props.game.Name}</Card.Header> 
+                    <Card.Header>{this.props.game.name}</Card.Header> 
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
-                            <img src={this.props.game.Image} width="200" height="200"></img>
+                            <img src={this.props.game.image} width="200" height="200"></img>
                             <footer className="blockquote-footer">
-                                {this.props.game.Yearofrelease}
+                                {this.props.game.yearofrelease}
                             </footer>
                         </blockquote>
                     </Card.Body>

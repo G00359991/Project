@@ -85,7 +85,7 @@ export class Gamecreate extends React.Component { // extends from and uses the c
                     </div>
                     <div className='form-group'>
                         <input type='submit'
-                            value='Add Movie'
+                            value='Add Game'
                             className='btn btn-primary'></input>
                     </div>
                 </form>

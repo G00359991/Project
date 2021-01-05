@@ -13,7 +13,7 @@ export class Gameread extends React.Component { // extends from and uses the cod
         axios.get('http://localhost:4000/api/games')
             .then(
                 (response) => {
-                    this.setState({ games: response.data.games })
+                    this.setState({ games: response.data })
                 }
             )
             .catch((error) => {
