@@ -5,6 +5,12 @@ import axios from 'axios'; // pulls in code from axios to be used in gameread.js
 
 export class Gameread extends React.Component { // extends from and uses the code from react
 
+    constructor(){
+        super() // invokes the parent's constructor
+
+        this.ReloadGameData = this.ReloadGameData.bind(this); // binds the ReloadGameData's method to the instance
+    }
+
     state = {
         games: []
     };
@@ -21,11 +27,23 @@ export class Gameread extends React.Component { // extends from and uses the cod
             });
     }
 
+    ReloadGameData() { /*method used to reload jsonblob data in the database that is to be outputted in gameread.js as well as to acquire the now reloaded necessary data for the games to be outputted to the screen at the localhost port specified in the url below. An error message to pop up in case something goes wrong */
+        axios.get('http://localhost:4000/api/games')
+            .then(
+                (response) => {
+                    this.setState({ games: response.data })
+                }
+            )
+            .catch((error) => {
+                console.log(error)
+            });
+    }
+
     render() {
         return ( /*outputs the heading text for the gameread.js to the screen, and also runs code that allows for the code from games.js to run properly and output to the screen.*/ 
             <div className="App">
                 <h1>These are the games</h1>
-                <Games games={this.state.games}></Games>
+                <Games games={this.state.games} ReloadGameData={this.ReloadGameData}></Games>
             </div>
         );
     }

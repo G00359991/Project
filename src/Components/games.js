@@ -6,7 +6,7 @@ export class Games extends React.Component { // extends from and uses the code f
 
     render() {
         return this.props.games.map ( (game)=>{
-            return <GameItem game={game}></GameItem>
-        }); /*Code up above outputs in the background and runs code necessary to put the information about games in gameItem.js on to the screen without issue */
+            return <GameItem game={game} ReloadGameData={this.props.ReloadGameData}></GameItem>
+        }); /*Code up above outputs in the background and runs code necessary to put the information about games in gameItem.js on to the screen without issue and allow it to reload the data */
     }
 }

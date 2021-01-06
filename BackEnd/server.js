@@ -66,6 +66,24 @@ app.get('/api/games/:id', (req, res)=>{ /*listens for the get request and then r
     })
 })
 
+app.put('/api/games/:id', (req, res)=>{ /*listens for the put request and then returns the game with inputted id to the screen with the adjustments made. If successful, will log down into the console that said game has been updated, and if not, an error will pop up. */
+    console.log("Update Game: "+req.params.id);
+    console.log(req.body);
+
+    GameModel.findByIdAndUpdate(req.params.id,req.body, {new:true},
+        (err,data)=>{
+            res.send(data);
+        })
+})
+
+app.delete('/api/games/:id', (req, res) => { /*listens for the delete request and then deletes a previously inputted game with the code below if it has that id. If successful, will log into the console that the game was deleted */
+    console.log("Delete Game: "+ req.params.id);
+
+    GameModel.findByIdAndDelete(req.params.id,(err, data)=>{
+        res.send(data);
+    })
+})
+
 app.post('/api/games', (req, res) => { /* requests a response of the server to log into the console the year of release, title/name and image of the games, as well as the message saying the game was received*/
     console.log('Game recieved!');
     console.log(req.body.name);

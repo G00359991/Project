@@ -9,6 +9,7 @@ import { Navbar, Nav } from 'react-bootstrap'; // pulls the navbar css from onli
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; // pulls from react-router-dom that was installed to add to the app's navbar and links
 import { Gamecreate } from './Components/gamecreate'; // pulls in code from the gamecreate.js component to be used in App.js
 import { Gameread } from './Components/gameread'; // pulls in code from the gameread.js component to be used in App.js
+import { Gameedit } from './Components/gameedit'; // pulls in code from the gameedit.js component to be used in App.js
 
 class App extends React.Component { // extends from and uses the code from react
 
@@ -27,8 +28,9 @@ class App extends React.Component { // extends from and uses the code from react
           </Navbar>
           <Switch>
             <Route path='/' component={Gamecontent} exact></Route> 
-            <Route path='/gamecreate' component={Gamecreate} exact></Route>
-            <Route path='/gameread' component={Gameread} exact></Route>
+            <Route path='/gamecreate' component={Gamecreate} ></Route>
+            <Route path='/gameread' component={Gameread} ></Route>
+            <Route path='/gameedit/:id' component={Gameedit} ></Route> 
           </Switch>
       </div>
       </Router>
