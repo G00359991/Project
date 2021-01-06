@@ -36,7 +36,7 @@ export class Gamecreate extends React.Component { // extends from and uses the c
             Image: e.target.value
         });
     }
-    onSubmit(e) { /*calls the submit button's method on the create.js page to submit the information inputted to the localhost port specified within the axios method in the url, logging into the console then if the server responded successfully, an error message to pop up if something goes wrong */
+    onSubmit(e) { /*calls the submit button's method on the gamecreate.js page to submit the information inputted to the localhost port specified within the axios method in the url, logging into the console then if the server responded successfully, an error message to pop up if something goes wrong */
         e.preventDefault();
         alert("Game: " + this.state.Name + " "
             + this.state.Yearofrelease + " " +
