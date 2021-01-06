@@ -4,6 +4,7 @@ const port = 4000; // the port in the url the server's information will be outpu
 const cors = require('cors'); // allows web page/server to use the cors code
 const bodyParser = require("body-parser"); // allows web page/server to use the body-parser code
 const mongoose = require('mongoose'); // allows web page/server to use the mongoose code
+const path = require('path'); // allows web page/server to use the path code
 
 app.use(cors()); // has the app use the cors code
 app.use(function(req, res, next) { /* gives access to the methods and headers within for the app to use for functionality, and allows the user to send the request and get a response from the server for the methods*/
@@ -13,6 +14,11 @@ res.header("Access-Control-Allow-Headers",
 "Origin, X-Requested-With, Content-Type, Accept");
 next();
 });
+
+
+
+app.use(express.static(path.join(__dirname, '../build'))); // configuration used to tell the server where the build folder is
+app.use('/static', express.static(path.join(__dirname, 'build//static'))); // configuration used to tell the server where the static folder is
 
 
 // parse application/x-www-form-urlencoded
@@ -99,6 +105,10 @@ app.post('/api/games', (req, res) => { /* requests a response of the server to l
     .catch()
 
     res.send('Game Item Added'); // outputs a message to the screen if the post was successful saying 'Game Item Added'
+})
+
+app.get('*', (req, res)=>{ /*listens for the get request to send the index.html file from the directory */
+    res.sendFile(path.join(__dirname+'/../build/index.html'));
 })
 
 app.listen(port, () => { /*Will log into the console that the app is listening at the specified port for the latest changes made to the app/web page */
