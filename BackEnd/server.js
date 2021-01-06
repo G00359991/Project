@@ -98,7 +98,7 @@ app.post('/api/games', (req, res) => { /* requests a response of the server to l
     .then()
     .catch()
 
-    res.send('Game Item Added'); // outputs message to the screen if the post was successful saying 'Game Item Added'
+    res.send('Game Item Added'); // outputs a message to the screen if the post was successful saying 'Game Item Added'
 })
 
 app.listen(port, () => { /*Will log into the console that the app is listening at the specified port for the latest changes made to the app/web page */
