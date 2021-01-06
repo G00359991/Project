@@ -34,7 +34,7 @@ class App extends React.Component { // extends from and uses the code from react
           </Switch>
       </div>
       </Router>
-    );
+    ); 
   }
 }
 
